@@ -20,5 +20,4 @@ public class Student {
 	private String name;
 	private Integer marks;
 	private String address;
-
 }
