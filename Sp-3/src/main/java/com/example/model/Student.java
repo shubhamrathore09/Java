@@ -1,27 +1,29 @@
 package com.example.model;
 
-import java.util.Collections;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class Student {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy =  GenerationType.AUTO)
 	private Integer roll;
 	private String name;
-	private Integer marks;
-	private String address;	
-	
-}
+	private String address;
 
+	@ManyToOne
+	private Course course;
+}

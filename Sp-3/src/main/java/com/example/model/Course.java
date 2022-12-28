@@ -1,27 +1,29 @@
 package com.example.model;
 
-import java.util.Collections;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
+import java.util.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Student {
+@ToString
+public class Course {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer roll;
-	private String name;
-	private Integer marks;
-	private String address;	
+	private Integer cid;
+	private String cname;
+	private Integer fee;
 	
+	@OneToMany
+	private List<Student>list;
 }
-
